@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@400;500;600&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-bg: #f4f0e8;
+  --color-surface: #fcfaf6;
+  --color-surface-2: #ebe6da;
+  --color-ink: #1c1916;
+  --color-muted: #6f675c;
+  --color-faint: #9a9286;
+  --color-olive: #3f4a3c;
+  --color-olive-fg: #f4f0e8;
+  --color-rule: #d9d2c5;
+  --color-good: #3d5a45;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --tracking-kicker: 0.16em;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.75rem;
+  --shadow-border: 0 0 0 1px rgba(28, 25, 22, 0.08), 0 1px 2px -1px rgba(28, 25, 22, 0.06);
+  --shadow-border-hover: 0 0 0 1px rgba(28, 25, 22, 0.12), 0 1px 2px -1px rgba(28, 25, 22, 0.1);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    background-image: radial-gradient(
+      ellipse 90% 40% at 50% -8%,
+      color-mix(in oklab, var(--color-olive) 7%, transparent),
+      transparent 60%
+    );
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
